@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BasicApp.Views.MenuPage"
+             Title="Menu">
+
+    <StackLayout VerticalOptions="FillAndExpand">
+        <StackLayout BackgroundColor="#96d1ff" Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+            <ContentView Padding="0,20,0,0" VerticalOptions="Center" HorizontalOptions="Center">
+                <Image Source="xamarin_logo.png" VerticalOptions="Center" HeightRequest="40" />
+            </ContentView>
+            <Label HorizontalOptions="Center" VerticalOptions="Center" Margin="0, 0, 0, 20">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span TextColor="White" FontSize="26">ERP</Span>
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </StackLayout>
+        <ListView x:Name="ListViewMenu" HasUnevenRows="True">
+            <d:ListView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Item 1</x:String>
+                    <x:String>Item 2</x:String>
+                </x:Array>
+            </d:ListView.ItemsSource>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Image Source="{Binding IconName}" HeightRequest="20" />
+                                <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout HeightRequest="130">
+            <ListView x:Name="BottomListViewMenu" HasUnevenRows="True">
+                <d:ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item 1</x:String>
+                        <x:String>Item 2</x:String>
+                    </x:Array>
+                </d:ListView.ItemsSource>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <Image Source="{Binding IconName}" HeightRequest="20" />
+                                    <Label Text="{Binding Title}" d:Text="{Binding .}" FontSize="20"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
